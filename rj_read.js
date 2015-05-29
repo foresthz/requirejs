@@ -211,6 +211,7 @@ var requirejs, require, define;
 //    这个函数真够大，这些不是在预解析中执行的
     function newContext(contextName) {
         // 一开头便定义了一堆函数。
+        // handlers 定义
         var inCheckLoaded, Module, context, handlers,
             checkLoadedTimeoutId,
             config = {
