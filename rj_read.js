@@ -21,6 +21,7 @@
 var requirejs, require, define;
 
 (function (global) {
+    // s变量的定义有什么用?
     var req, s, head, baseElement, dataMain, src,
         interactiveScript, currentlyAddingScript, mainScript, subPath,
         version = '2.1.11+',
@@ -734,7 +735,7 @@ var requirejs, require, define;
             inCheckLoaded = false;
         }
 
-        // 起类的作用. 
+        // 起类的作用. module代码了解
         Module = function (map) {
             // 输入一个变量,但是初始化很多个变量
             this.events = getOwn(undefEvents, map.id) || {};
@@ -1729,7 +1730,7 @@ var requirejs, require, define;
      * on a require that are not standardized), and to give a short
      * name for minification/local scope use.
      */
-    // req对象，req是函数对象，它可以有很多子元素
+    // req对象，req是函数对象，它可以有很多子元素, 分别是全局变量和局部变量
     req = requirejs = function (deps, callback, errback, optional) {
 
         //Find the right context, use default
@@ -1770,6 +1771,7 @@ var requirejs, require, define;
      * Support require.config() to make it easier to cooperate with other
      * AMD loaders on globally agreed names.
      */
+     // function后面,可以随便添加属性? 
     req.config = function (config) {
         return req(config);
     };
