@@ -15,9 +15,11 @@
  * 仍然未能做到所有JS文件，由一个requirejs导入文件即可完成。
  * 对一个库深入分析完之后，再分析下一个库，是一种比较明智的做法，这样深入到一个库的所有细节了，也必然涉及JS的各种语言细节
  *
+ * data-main数据读取,之后,完整解析?
 ************/
 
 var requirejs, require, define;
+
 (function (global) {
     var req, s, head, baseElement, dataMain, src,
         interactiveScript, currentlyAddingScript, mainScript, subPath,
@@ -732,7 +734,9 @@ var requirejs, require, define;
             inCheckLoaded = false;
         }
 
+        // 起类的作用. 
         Module = function (map) {
+            // 输入一个变量,但是初始化很多个变量
             this.events = getOwn(undefEvents, map.id) || {};
             this.map = map;
             this.shim = getOwn(config.shim, map.id);
@@ -748,7 +752,9 @@ var requirejs, require, define;
             */
         };
 
+        // prototype可以以这种便利的方式定义, Module定义的函数有400行
         Module.prototype = {
+            // 属性名不需要使用引号
             init: function (depMaps, factory, errback, options) {
                 options = options || {};
 
