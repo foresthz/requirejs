@@ -20,6 +20,10 @@
 
 var requirejs, require, define;
 
+// window.onerror = function() {
+//     alert('error');
+// }
+
 (function (global) {
     // s变量的定义有什么用?
     var req, s, head, baseElement, dataMain, src,

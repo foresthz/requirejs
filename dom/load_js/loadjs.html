@@ -1,0 +1,45 @@
+
+<script type="text/javascript">
+
+class AMD {
+	define() {
+
+	}
+
+	define_with_arguments() {
+		// the first argument should be a dependency array
+		console.info('length of arguments: ', arguments.length);
+	}
+
+
+	define_standard(dep_array, func) {
+		for (var i=0; i<dep_array.length; i++) {
+			console.info('depends on: ', dep_array[i]);
+		}
+	}
+
+	// 多层嵌套, [a,b,c]  a要先加载 [d,e]  b,c依赖a,那么要先加载d,e
+	// 加载器是否使用了类似eval的代码?
+	// 是否组装成闭包?
+
+
+}
+
+class AMDTester  {
+
+	constructor() {
+		this.amd = new AMD();
+	}
+
+	amd_test1() {
+		this.amd.define_with_arguments(1, 2, 3, 'eee');
+		this.amd.define_with_arguments(1, 2, 3, 'eee', 'ppp');
+		this.amd.define_with_arguments(['a', 'b', 'c', 'd'], 'eeee');
+	}
+}
+
+tester = new AMDTester();
+tester.amd_test1();
+
+
+</script>
