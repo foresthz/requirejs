@@ -1,4 +1,6 @@
 .DS_Store
+node_modules/
+package-lock.json
 docs/jquery-require-sample/webapp-build/
 docs/jquery-require-sample/dist
 dist/dist-site/

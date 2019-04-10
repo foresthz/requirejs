@@ -8,7 +8,7 @@
 /*jslint regexp: true, nomen: true, sloppy: true */
 /*global window, navigator, document, importScripts, setTimeout, opera */
 
-
+// Edit from webstorm in sandbox
 // 一些案例程序的测试，也许都可以在这个项目中进行了
 
 /***********
@@ -1972,6 +1972,7 @@ var requirejs, require, define;
 
     // 在data-main脚本中设置baseUrl，在引用该脚本的页面中无效，引用页面的根目录是data-main脚本所在目录
     //Look for a data-main script attribute, which could also adjust the baseUrl.
+    // 不是浏览器中也可以运行
     if (isBrowser && !cfg.skipDataMain) {
         //Figure out baseUrl. Get it from the script tag with require.js in it.
         eachReverse(scripts(), function (script) {
@@ -2024,10 +2025,13 @@ var requirejs, require, define;
      * return a value to define the module corresponding to the first argument's
      * name.
      */
+
+    // 如果有name,接下来的依赖不会加载?
     define = function (name, deps, callback) {
         var node, context;
 
         //Allow for anonymous modules
+        // 模块没有名称,那么第一个变量是依赖,第二个变量是函数
         if (typeof name !== 'string') {
             //Adjust args appropriately
             callback = deps;
@@ -2065,8 +2069,8 @@ var requirejs, require, define;
             }
         }
 
-        //If in IE 6-8 and hit an anonymous define() call, do the interactive
-        //work.
+        // If in IE 6-8 and hit an anonymous define() call, do the interactive
+        // work.
         if (useInteractive) {
             node = currentlyAddingScript || getInteractiveScript();
             if (node) {
